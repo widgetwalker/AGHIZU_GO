@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Video, Calendar, FileText, Heart } from "lucide-react";
 import heroImage from "@/assets/hero-doctor.jpg";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -24,12 +25,16 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <Button variant="hero" size="lg" className="text-lg">
-                Book Consultation
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg">
-                Browse Doctors
-              </Button>
+              <Link to="/consultation">
+                <Button variant="hero" size="lg" className="text-lg">
+                  Book Consultation
+                </Button>
+              </Link>
+              <Link to="/doctors">
+                <Button variant="outline" size="lg" className="text-lg">
+                  Browse Doctors
+                </Button>
+              </Link>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8">

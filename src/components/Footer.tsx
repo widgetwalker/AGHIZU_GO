@@ -10,7 +10,7 @@ const Footer = () => {
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                 <Heart className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold">MediConnect</span>
+              <span className="text-xl font-bold">AGHIZU GO</span>
             </div>
             <p className="text-muted-foreground mb-4">
               Your trusted partner in accessible, quality healthcare. Expert medical care, anytime, anywhere.
@@ -46,7 +46,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>support@mediconnect.com</span>
+                <span>support@aghizugo.com</span>
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary mt-1" />
@@ -57,7 +57,7 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 border-t border-border text-center text-muted-foreground">
-          <p>&copy; 2025 MediConnect. All rights reserved. HIPAA Compliant Healthcare Platform.</p>
+          <p>&copy; 2025 AGHIZU GO. All rights reserved. HIPAA Compliant Healthcare Platform.</p>
         </div>
       </div>
     </footer>

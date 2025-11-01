@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Star, MapPin, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const doctors = [
   {
@@ -128,9 +129,11 @@ const DoctorGrid = () => {
                   </Badge>
                 </div>
                 
-                <Button className="w-full" variant="default">
-                  Book Appointment
-                </Button>
+                <Link to="/consultation">
+                  <Button className="w-full" variant="default">
+                    Book Appointment
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           ))}
