@@ -38,3 +38,6 @@ Thumbs.db
 
 # Cursor MCP config (contains sensitive data)
 mcp.json
+
+# Nested git repository
+AGHIZU_GO/
