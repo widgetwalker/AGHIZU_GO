@@ -14,7 +14,7 @@ const Doctors = () => {
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           <Link to="/">
-            <Button variant="ghost" className="mb-6">
+            <Button variant="ghost" className="mb-6 transition-all duration-300 hover:scale-105">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Button>

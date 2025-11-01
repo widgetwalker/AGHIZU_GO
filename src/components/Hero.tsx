@@ -26,51 +26,51 @@ const Hero = () => {
             
             <div className="flex flex-wrap gap-4">
               <Link to="/consultation">
-                <Button variant="hero" size="lg" className="text-lg">
+                <Button variant="hero" size="lg" className="text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   Book Consultation
                 </Button>
               </Link>
               <Link to="/doctors">
-                <Button variant="outline" size="lg" className="text-lg">
+                <Button variant="outline" size="lg" className="text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
                   Browse Doctors
                 </Button>
               </Link>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8">
-              <div className="text-center">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Video className="w-6 h-6 text-primary" />
+              <div className="text-center group cursor-pointer">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                  <Video className="w-6 h-6 text-primary transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 <p className="text-sm font-medium">Video Consult</p>
               </div>
-              <div className="text-center">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Calendar className="w-6 h-6 text-primary" />
+              <div className="text-center group cursor-pointer">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                  <Calendar className="w-6 h-6 text-primary transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 <p className="text-sm font-medium">Easy Booking</p>
               </div>
-              <div className="text-center">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-primary" />
+              <div className="text-center group cursor-pointer">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                  <FileText className="w-6 h-6 text-primary transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 <p className="text-sm font-medium">Digital Rx</p>
               </div>
-              <div className="text-center">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-primary" />
+              <div className="text-center group cursor-pointer">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                  <Heart className="w-6 h-6 text-primary transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 <p className="text-sm font-medium">24/7 Care</p>
               </div>
             </div>
           </div>
           
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-3xl blur-3xl"></div>
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-3xl blur-3xl transition-opacity duration-500 group-hover:opacity-75"></div>
             <img 
               src={heroImage} 
               alt="Professional healthcare consultation" 
-              className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
+              className="relative rounded-3xl shadow-2xl w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             />
           </div>
         </div>

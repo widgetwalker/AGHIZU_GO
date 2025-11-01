@@ -96,7 +96,7 @@ const Consultation = () => {
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 max-w-4xl">
           <Link to="/">
-            <Button variant="ghost" className="mb-6">
+            <Button variant="ghost" className="mb-6 transition-all duration-300 hover:scale-105">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Button>
@@ -111,7 +111,7 @@ const Consultation = () => {
             </p>
           </div>
 
-          <Card className="border-2">
+          <Card className="border-2 hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="pb-4">
               <CardTitle className="text-2xl">Consultation Details</CardTitle>
             </CardHeader>
@@ -213,14 +213,14 @@ const Consultation = () => {
                 )}
 
                 <div className="pt-4 space-y-3">
-                  <Button type="submit" className="w-full" size="lg">
+                  <Button type="submit" className="w-full transition-all duration-300 hover:scale-105 hover:shadow-xl" size="lg">
                     <Video className="w-4 h-4 mr-2" />
                     Schedule Video Consultation
                   </Button>
                   <Button
                     type="button"
                     variant="outline"
-                    className="w-full"
+                    className="w-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
                     size="lg"
                     onClick={handleBrowseDoctors}
                   >

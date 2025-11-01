@@ -111,13 +111,13 @@ const DoctorGrid = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {doctors.map((doctor) => (
-            <Card key={doctor.id} className="overflow-hidden hover:shadow-xl transition-all border-2 hover:border-primary/30">
+            <Card key={doctor.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/30 hover:-translate-y-2 group">
               <CardHeader className="relative pb-4">
                 <div className="flex items-start gap-4">
                   <img 
                     src={doctor.image} 
                     alt={doctor.name}
-                    className="w-20 h-20 rounded-full bg-muted flex-shrink-0"
+                    className="w-20 h-20 rounded-full bg-muted flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:ring-4 group-hover:ring-primary/20"
                   />
                   <div className="flex-1 min-w-0">
                     <h3 className="text-xl font-bold mb-1 truncate">{doctor.name}</h3>
@@ -153,7 +153,7 @@ const DoctorGrid = () => {
                 </div>
                 
                 <Button 
-                  className="w-full" 
+                  className="w-full transition-all duration-300 hover:scale-105 hover:shadow-lg" 
                   variant="default"
                   onClick={() => handleBookAppointment(doctor)}
                 >
