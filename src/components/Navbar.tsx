@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Heart, Menu, User } from "lucide-react";
+import { Activity, Menu, User } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useSession, signOut } from "@/lib/auth";
 import {
@@ -14,6 +14,17 @@ import {
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { data: session } = useSession();
+  const navigate = useNavigate();
+
+  // Fallback navigation if navigate fails
+  const handleNavigation = (path: string) => {
+    try {
+      navigate(path);
+    } catch (error) {
+      console.error("Navigation error:", error);
+      window.location.href = path;
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
@@ -21,7 +32,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <Heart className="w-6 h-6 text-white" />
+              <Activity className="w-6 h-6 text-white" />
             </div>
             <span className="text-xl font-bold">AGHIZU GO</span>
           </div>
@@ -59,11 +70,30 @@ const Navbar = () => {
               </DropdownMenu>
             ) : (
               <>
-                <Button variant="ghost" asChild className="transition-all duration-300 hover:scale-105">
-                  <Link to="/signin">Sign In</Link>
+                <Button 
+                  type="button"
+                  variant="ghost" 
+                  className="transition-all duration-300 hover:scale-105 cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log("Sign In button clicked");
+                    handleNavigation("/signin");
+                  }}
+                >
+                  Sign In
                 </Button>
-                <Button asChild className="transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <Link to="/signup">Get Started</Link>
+                <Button 
+                  type="button"
+                  className="transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log("Get Started button clicked");
+                    handleNavigation("/signup");
+                  }}
+                >
+                  Get Started
                 </Button>
               </>
             )}
@@ -105,11 +135,32 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <Button variant="ghost" asChild className="w-full transition-all duration-300 hover:scale-105">
-                    <Link to="/signin">Sign In</Link>
+                  <Button 
+                    type="button"
+                    variant="ghost" 
+                    className="w-full transition-all duration-300 hover:scale-105 cursor-pointer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      console.log("Mobile Sign In button clicked");
+                      setIsMenuOpen(false);
+                      handleNavigation("/signin");
+                    }}
+                  >
+                    Sign In
                   </Button>
-                  <Button asChild className="w-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                    <Link to="/signup">Get Started</Link>
+                  <Button 
+                    type="button"
+                    className="w-full transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      console.log("Mobile Get Started button clicked");
+                      setIsMenuOpen(false);
+                      handleNavigation("/signup");
+                    }}
+                  >
+                    Get Started
                   </Button>
                 </>
               )}
