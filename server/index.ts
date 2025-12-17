@@ -2,7 +2,6 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { auth } from "./auth.js";
-import chatRouter from "./chat.js";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,9 +20,6 @@ app.use(cors({
 // Parse JSON body, but keep raw body for auth endpoints
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-
-// Chat API routes
-app.use("/api/chat", chatRouter);
 
 // Better Auth API routes
 app.use("/api/auth", async (req, res) => {

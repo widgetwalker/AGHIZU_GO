@@ -80,3 +80,24 @@ Node.js v22.17.0
 c1:24:55 pm [tsx] change in ./server\chat.ts Restarting...
 c🚀 Better Auth server running on http://localhost:3001
 📡 Auth API available at http://localhost:3001/api/auth
+2:16:11 pm [tsx] unlink in ./server\chat.ts Restarting...
+c
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'D:\dheer@j\AGHIZU_GO-main\server\chat.js' imported from D:\dheer@j\AGHIZU_GO-main\server\index.ts
+    at finalizeResolution (node:internal/modules/esm/resolve:275:11)
+    at moduleResolve (node:internal/modules/esm/resolve:860:10)
+    at defaultResolve (node:internal/modules/esm/resolve:984:11)
+    at nextResolve (node:internal/modules/esm/hooks:748:28)
+    at resolveBase (file:///D:/dheer@j/AGHIZU_GO-main/node_modules/tsx/dist/esm/index.mjs?1765961171614:2:3744)
+    at async resolveDirectory (file:///D:/dheer@j/AGHIZU_GO-main/node_modules/tsx/dist/esm/index.mjs?1765961171614:2:4237)
+    at async resolve (file:///D:/dheer@j/AGHIZU_GO-main/node_modules/tsx/dist/esm/index.mjs?1765961171614:2:5355)
+    at async nextResolve (node:internal/modules/esm/hooks:748:22)
+    at async Hooks.resolve (node:internal/modules/esm/hooks:240:24)
+    at async handleMessage (node:internal/modules/esm/worker:199:18) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///D:/dheer@j/AGHIZU_GO-main/server/chat.js'
+}
+
+Node.js v22.17.0
