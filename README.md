@@ -1,42 +1,88 @@
-# AGHIZU_GO
+<div align="center">
 
-## 🏥 Project Overview
-AGHIZU GO is a comprehensive telemedicine platform designed to connect patients with certified doctors instantly. The application facilitates:
-- **Instant Video Consultations**: Connect with doctors from home.
-- **Easy Booking**: Seamless appointment scheduling.
-- **Digital Prescriptions**: Receive valid digital prescriptions post-consultation.
-- **24/7 Care**: Round-the-clock access to medical professionals.
-- **AI Medical Assistant**: Intelligent chatbot providing instant health guidance.
+# 🏥 AGHIZU GO
 
-## 🛠️ Technology Stack
-The project is built using a modern, type-safe full-stack architecture:
+### Expert Healthcare Anytime, Anywhere
+
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+
+[Features](#-features) • [Tech Stack](#️-tech-stack) • [Getting Started](#-getting-started) • [Documentation](#-project-structure)
+
+</div>
+
+---
+
+## 📋 Overview
+
+**AGHIZU GO** is a modern, full-stack telemedicine platform that connects patients with certified healthcare professionals instantly. Built with cutting-edge technologies, it provides a seamless, secure, and accessible healthcare experience.
+
+### ✨ Key Highlights
+
+- 🎥 **Instant Video Consultations** - Connect with doctors from the comfort of your home
+- 📅 **Easy Appointment Booking** - Seamless scheduling system
+- 💊 **Digital Prescriptions** - Receive valid e-prescriptions post-consultation
+- 🔒 **Secure Authentication** - Enterprise-grade security with Better Auth
+- 📱 **Responsive Design** - Mobile-first UI for all devices
+- ⚡ **Real-time Validation** - Instant form feedback with Zod
+
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
-- **Framework**: [React](https://react.dev/) with [Vite](https://vitejs.dev/) (Fast HMR & Bundling)
-- **Language**: [TypeScript](https://www.typescriptlang.org/) (Static Typing)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) (Utility-first CSS) with `tailwindcss-animate`
-- **UI Components**:
-    - [Shadcn UI](https://ui.shadcn.com/) (Accessible, reusable components)
-    - [Radix UI](https://www.radix-ui.com/) (Headless primitives)
-    - [Lucide React](https://lucide.dev/) (Icons)
-- **State Management & Data Fetching**: [TanStack Query](https://tanstack.com/query/latest) (Async state)
-- **Routing**: [React Router](https://reactrouter.com/)
-- **Forms**: [React Hook Form](https://react-hook-form.com/) with [Zod](https://zod.dev/) validation
+| Technology | Purpose |
+|------------|---------|
+| [React 18](https://react.dev/) | UI Framework |
+| [TypeScript](https://www.typescriptlang.org/) | Type Safety |
+| [Vite](https://vitejs.dev/) | Build Tool & Dev Server |
+| [Tailwind CSS](https://tailwindcss.com/) | Styling |
+| [Shadcn UI](https://ui.shadcn.com/) | Component Library |
+| [Radix UI](https://www.radix-ui.com/) | Headless Primitives |
+| [TanStack Query](https://tanstack.com/query/latest) | Data Fetching |
+| [React Router](https://reactrouter.com/) | Routing |
+| [React Hook Form](https://react-hook-form.com/) | Form Management |
+| [Zod](https://zod.dev/) | Schema Validation |
 
-### Backend (Auth & API)
-- **Server**: [Express.js](https://expressjs.com/) (running on Node.js)
-- **Authentication**: [Better Auth](https://www.better-auth.com/)
-- **Database**: [PostgreSQL](https://www.postgresql.org/) (Hosted on [Supabase](https://supabase.com/))
-- **ORM**: [Drizzle ORM](https://orm.drizzle.team/) (Type-safe SQL)
+### Backend
+| Technology | Purpose |
+|------------|---------|
+| [Node.js](https://nodejs.org/) | Runtime Environment |
+| [Express.js](https://expressjs.com/) | Web Framework |
+| [Better Auth](https://www.better-auth.com/) | Authentication |
+| [PostgreSQL](https://www.postgresql.org/) | Database |
+| [Supabase](https://supabase.com/) | Database Hosting |
+| [Drizzle ORM](https://orm.drizzle.team/) | Type-safe ORM |
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v16.x or higher)
-- npm or bun
 
-### Environment Setup
-1. Create a `.env` file in the root directory:
+- **Node.js** v16.x or higher
+- **npm** or **bun**
+- **PostgreSQL** database (Supabase recommended)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/widgetwalker/AGHIZU_GO.git
+   cd AGHIZU_GO
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Configure environment variables**
+   
+   Create a `.env` file in the root directory:
    ```env
    # Authentication (Better Auth)
    VITE_BETTER_AUTH_URL=http://localhost:3001
@@ -51,48 +97,91 @@ The project is built using a modern, type-safe full-stack architecture:
    PORT=3001
    CLIENT_URL=http://localhost:8080
    ```
-   > **Note**: Verify `CLIENT_URL` matches your frontend port (default 8080 or 8081).
 
-### Installation
-```bash
-npm install
-```
+4. **Run the application**
+   ```bash
+   npm run dev:all
+   ```
 
-### Running the Project
-To run both the frontend and backend servers concurrently:
-```bash
-npm run dev:all
-```
+   The application will be available at:
+   - **Frontend**: http://localhost:8080
+   - **Backend**: http://localhost:3001
 
-- **Frontend**: [http://localhost:8080](http://localhost:8080)
-- **Backend**: [http://localhost:3001](http://localhost:3001)
+---
 
-### Development Scripts
-- `npm run dev`: Starts only the frontend (Vite).
-- `npm run dev:auth`: Starts only the backend (Auth server).
-- `npm run build`: Build for production.
-- `npm run lint`: Run ESLint.
+## 📜 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start frontend only (Vite dev server) |
+| `npm run dev:auth` | Start backend only (Auth server) |
+| `npm run dev:all` | Start both frontend and backend concurrently |
+| `npm run build` | Build for production |
+| `npm run lint` | Run ESLint |
+| `npm run preview` | Preview production build |
+
+---
 
 ## 📂 Project Structure
+
 ```
-AGHIZU_GO-main/
-├── server/             # Backend (Express + Better Auth)
-│   ├── index.ts        # Server entry point
-│   ├── auth.ts         # Better Auth configuration
-│   ├── chat.ts         # AI Chatbot API
-│   └── schema.ts       # Database schema (Drizzle)
-├── src/                # Frontend (React)
-│   └── components/
-│       └── ChatBot.tsx # AI Medical Assistant Widget
-├── public/             # Static assets
-├── .env                # Environment variables (not committed)
-├── package.json        # Dependencies and scripts
-└── vite.config.ts      # Vite configuration
+AGHIZU_GO/
+├── 📁 server/              # Backend (Express + Better Auth)
+│   ├── index.ts            # Server entry point
+│   ├── auth.ts             # Better Auth configuration
+│   └── schema.ts           # Database schema (Drizzle)
+├── 📁 src/                 # Frontend (React)
+│   ├── 📁 components/      # Reusable UI components
+│   ├── 📁 pages/           # Route pages
+│   └── main.tsx            # App entry point
+├── 📁 public/              # Static assets
+├── .env                    # Environment variables (not committed)
+├── package.json            # Dependencies and scripts
+├── tailwind.config.ts      # Tailwind configuration
+└── vite.config.ts          # Vite configuration
 ```
 
-## 📝 Features & Requirements (PRD Summary)
-- **User Authentication**: Secure sign-up/sign-in using Email/Password via Better Auth.
-- **AI Medical Chatbot**: 24/7 AI-powered medical assistant providing instant health guidance and appointment booking.
-- **Database Schema**: Users, Sessions, Accounts, Verification tokens managed via Drizzle ORM.
-- **Responsive Design**: Mobile-first UI tailored for healthcare accessibility.
-- **Real-time Validation**: Form inputs validated instantly with Zod.
+---
+
+## 🎯 Features
+
+### 🔐 Authentication & Security
+- Secure email/password authentication via Better Auth
+- Session management with secure cookies
+- Database-backed user verification
+
+### 👨‍⚕️ Healthcare Features
+- Doctor profiles and specialization listings
+- Appointment booking system
+- Video consultation integration
+- Digital prescription management
+
+### 💻 Technical Features
+- Server-side rendering ready
+- Type-safe database queries with Drizzle ORM
+- Real-time form validation
+- Responsive mobile-first design
+- Dark mode support
+- Accessible UI components (WCAG compliant)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+<div align="center">
+
+**Built with ❤️ for better healthcare accessibility**
+
+[⬆ Back to Top](#-aghizu-go)
+
+</div>
