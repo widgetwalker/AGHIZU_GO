@@ -52,3 +52,6 @@ Node.js v22.17.0
 12:52:36 pm [tsx] change in ./server\index.ts Rerunning...
 c🚀 Better Auth server running on http://localhost:3001
 📡 Auth API available at http://localhost:3001/api/auth
+1:16:26 pm [tsx] change in ./server\chat.ts Restarting...
+c🚀 Better Auth server running on http://localhost:3001
+📡 Auth API available at http://localhost:3001/api/auth

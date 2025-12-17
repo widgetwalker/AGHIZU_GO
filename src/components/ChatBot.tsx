@@ -3,14 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MessageCircle, Send, X } from "lucide-react";
+import { MessageCircle, Send, X, Calendar } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useNavigate } from "react-router-dom";
 
 interface Message {
     id: string;
     text: string;
     sender: "user" | "bot";
     timestamp: Date;
+    showBooking?: boolean;
 }
 
 export function ChatBot() {
@@ -26,12 +28,18 @@ export function ChatBot() {
     const [inputValue, setInputValue] = useState("");
     const [isTyping, setIsTyping] = useState(false);
     const scrollRef = useRef<HTMLDivElement>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (scrollRef.current) {
             scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
         }
     }, [messages]);
+
+    const handleBookConsultation = () => {
+        setIsOpen(false);
+        navigate("/consultation");
+    };
 
     const handleSendMessage = async () => {
         if (!inputValue.trim()) return;
@@ -61,6 +69,7 @@ export function ChatBot() {
                 text: data.response || "I'm sorry, I couldn't process that.",
                 sender: "bot",
                 timestamp: new Date(),
+                showBooking: data.showBooking || false,
             };
 
             setMessages((prev) => [...prev, botMessage]);
@@ -108,26 +117,39 @@ export function ChatBot() {
                         <ScrollArea className="flex-1 px-4" ref={scrollRef}>
                             <div className="space-y-4 py-4">
                                 {messages.map((message) => (
-                                    <div
-                                        key={message.id}
-                                        className={`flex gap-3 ${message.sender === "user" ? "flex-row-reverse" : ""
-                                            }`}
-                                    >
-                                        <Avatar className="h-8 w-8 flex-shrink-0">
-                                            <AvatarFallback>
-                                                {message.sender === "user" ? "U" : "AI"}
-                                            </AvatarFallback>
-                                        </Avatar>
+                                    <div key={message.id} className="space-y-2">
                                         <div
-                                            className={`rounded-lg px-4 py-2 max-w-[70%] break-words ${message.sender === "user"
-                                                    ? "bg-primary text-primary-foreground"
-                                                    : "bg-muted"
+                                            className={`flex gap-3 ${message.sender === "user" ? "flex-row-reverse" : ""
                                                 }`}
                                         >
-                                            <p className="text-sm whitespace-pre-wrap break-words overflow-wrap-anywhere">
-                                                {message.text}
-                                            </p>
+                                            <Avatar className="h-8 w-8 flex-shrink-0">
+                                                <AvatarFallback>
+                                                    {message.sender === "user" ? "U" : "AI"}
+                                                </AvatarFallback>
+                                            </Avatar>
+                                            <div
+                                                className={`rounded-lg px-4 py-2 max-w-[70%] break-words ${message.sender === "user"
+                                                        ? "bg-primary text-primary-foreground"
+                                                        : "bg-muted"
+                                                    }`}
+                                            >
+                                                <p className="text-sm whitespace-pre-wrap break-words overflow-wrap-anywhere">
+                                                    {message.text}
+                                                </p>
+                                            </div>
                                         </div>
+                                        {message.showBooking && message.sender === "bot" && (
+                                            <div className="flex justify-end pr-11">
+                                                <Button
+                                                    onClick={handleBookConsultation}
+                                                    size="sm"
+                                                    className="gap-2"
+                                                >
+                                                    <Calendar className="h-4 w-4" />
+                                                    Book Consultation
+                                                </Button>
+                                            </div>
+                                        )}
                                     </div>
                                 ))}
                                 {isTyping && (
