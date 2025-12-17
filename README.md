@@ -6,6 +6,7 @@ AGHIZU GO is a comprehensive telemedicine platform designed to connect patients 
 - **Easy Booking**: Seamless appointment scheduling.
 - **Digital Prescriptions**: Receive valid digital prescriptions post-consultation.
 - **24/7 Care**: Round-the-clock access to medical professionals.
+- **AI Medical Assistant**: Intelligent chatbot providing instant health guidance.
 
 ## 🛠️ Technology Stack
 The project is built using a modern, type-safe full-stack architecture:
@@ -78,8 +79,11 @@ AGHIZU_GO-main/
 ├── server/             # Backend (Express + Better Auth)
 │   ├── index.ts        # Server entry point
 │   ├── auth.ts         # Better Auth configuration
+│   ├── chat.ts         # AI Chatbot API
 │   └── schema.ts       # Database schema (Drizzle)
 ├── src/                # Frontend (React)
+│   └── components/
+│       └── ChatBot.tsx # AI Medical Assistant Widget
 ├── public/             # Static assets
 ├── .env                # Environment variables (not committed)
 ├── package.json        # Dependencies and scripts
@@ -88,6 +92,7 @@ AGHIZU_GO-main/
 
 ## 📝 Features & Requirements (PRD Summary)
 - **User Authentication**: Secure sign-up/sign-in using Email/Password via Better Auth.
+- **AI Medical Chatbot**: 24/7 AI-powered medical assistant providing instant health guidance and appointment booking.
 - **Database Schema**: Users, Sessions, Accounts, Verification tokens managed via Drizzle ORM.
 - **Responsive Design**: Mobile-first UI tailored for healthcare accessibility.
 - **Real-time Validation**: Form inputs validated instantly with Zod.
