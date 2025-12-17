@@ -138,8 +138,9 @@ export function ChatBot() {
                                                 </p>
                                             </div>
                                         </div>
+                                        {/* Show booking button if recommended */}
                                         {message.showBooking && message.sender === "bot" && (
-                                            <div className="flex justify-end pr-11">
+                                            <div className="flex justify-start ml-11">
                                                 <Button
                                                     onClick={handleBookConsultation}
                                                     size="sm"
@@ -167,7 +168,7 @@ export function ChatBot() {
                         <div className="p-4 border-t flex-shrink-0">
                             <div className="flex gap-2">
                                 <Input
-                                    placeholder="Ask a medical question..."
+                                    placeholder="Describe your symptoms..."
                                     value={inputValue}
                                     onChange={(e) => setInputValue(e.target.value)}
                                     onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
