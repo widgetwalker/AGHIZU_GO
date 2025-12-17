@@ -83,7 +83,7 @@ export function ChatBot() {
             {!isOpen && (
                 <Button
                     onClick={() => setIsOpen(true)}
-                    className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg"
+                    className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg z-50"
                     size="icon"
                 >
                     <MessageCircle className="h-6 w-6" />
@@ -92,8 +92,8 @@ export function ChatBot() {
 
             {/* Chat Window */}
             {isOpen && (
-                <Card className="fixed bottom-6 right-6 w-96 h-[500px] shadow-2xl flex flex-col">
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+                <Card className="fixed bottom-6 right-6 w-96 h-[500px] shadow-2xl flex flex-col z-50">
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4 border-b">
                         <CardTitle className="text-lg font-semibold">Medical Assistant</CardTitle>
                         <Button
                             variant="ghost"
@@ -104,7 +104,7 @@ export function ChatBot() {
                             <X className="h-4 w-4" />
                         </Button>
                     </CardHeader>
-                    <CardContent className="flex-1 flex flex-col p-0">
+                    <CardContent className="flex-1 flex flex-col p-0 overflow-hidden">
                         <ScrollArea className="flex-1 px-4" ref={scrollRef}>
                             <div className="space-y-4 py-4">
                                 {messages.map((message) => (
@@ -113,24 +113,26 @@ export function ChatBot() {
                                         className={`flex gap-3 ${message.sender === "user" ? "flex-row-reverse" : ""
                                             }`}
                                     >
-                                        <Avatar className="h-8 w-8">
+                                        <Avatar className="h-8 w-8 flex-shrink-0">
                                             <AvatarFallback>
                                                 {message.sender === "user" ? "U" : "AI"}
                                             </AvatarFallback>
                                         </Avatar>
                                         <div
-                                            className={`rounded-lg px-4 py-2 max-w-[70%] ${message.sender === "user"
+                                            className={`rounded-lg px-4 py-2 max-w-[70%] break-words ${message.sender === "user"
                                                     ? "bg-primary text-primary-foreground"
                                                     : "bg-muted"
                                                 }`}
                                         >
-                                            <p className="text-sm">{message.text}</p>
+                                            <p className="text-sm whitespace-pre-wrap break-words overflow-wrap-anywhere">
+                                                {message.text}
+                                            </p>
                                         </div>
                                     </div>
                                 ))}
                                 {isTyping && (
                                     <div className="flex gap-3">
-                                        <Avatar className="h-8 w-8">
+                                        <Avatar className="h-8 w-8 flex-shrink-0">
                                             <AvatarFallback>AI</AvatarFallback>
                                         </Avatar>
                                         <div className="rounded-lg px-4 py-2 bg-muted">
@@ -140,7 +142,7 @@ export function ChatBot() {
                                 )}
                             </div>
                         </ScrollArea>
-                        <div className="p-4 border-t">
+                        <div className="p-4 border-t flex-shrink-0">
                             <div className="flex gap-2">
                                 <Input
                                     placeholder="Ask a medical question..."
